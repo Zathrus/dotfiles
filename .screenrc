@@ -1,0 +1,22 @@
+termcapinfo xterm*|putty* LP:G0
+termcapinfo xterm*|putty* cs=\E[%i%p1%d;%p2%dr:im=\E[4h:ei=\E[4l
+#80/132 column switching must be enabled for ^AW to work
+#change init sequence to not switch width
+termcapinfo  xterm*|putty* Z0=\E[?3h:Z1=\E[?3l:is=\E[r\E[m\E[2J\E[H\E[?7h\E[?1;4;6l
+# Make the output buffer large for (fast) xterms.
+#termcapinfo xterm* OL=10000
+termcapinfo xterm*|putty* OL=1000
+# tell screen that xterm can switch to dark background and has function
+# keys.
+termcapinfo xterm*|putty* 'VR=\E[?5h:VN=\E[?5l'
+termcapinfo xterm*|putty* 'k1=\E[11~:k2=\E[12~:k3=\E[13~:k4=\E[14~'
+termcapinfo xterm*|putty* 'kh=\EOH:kI=\E[2~:kD=\E[3~:kH=\EOF:kP=\E[5~:kN=\E[6~'
+# special xterm hardstatus: use the window title.
+termcapinfo xterm*|putty* 'hs:ts=\E]2;:fs=\007:ds=\E]2;screen\007'
+#terminfo xterm 'vb=\E[?5h$<200/>\E[?5l'
+termcapinfo xterm*|putty* 'vi=\E[?25l:ve=\E[34h\E[?25h:vs=\E[34l'
+# emulate part of the 'K' charset
+termcapinfo   xterm*|putty* 'XC=K%,%\E(B,[\304,\\\\\326,]\334,{\344,|\366,}\374,~\337'
+# xterm-52 tweaks:
+# - uses background color for delete operations
+termcapinfo xterm*|putty* be
