@@ -8,5 +8,4 @@ fi
 # User specific aliases and functions
 alias la='ls -la'
 alias md='mkdir -p'
-alias mktag='ctags -R --fields=+aiKmnsSz --langmap=c:+.pc'
-alias more=`which less`
+alias more=$(which less)
