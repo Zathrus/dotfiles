@@ -316,7 +316,7 @@ if has("gui_running")
     set guioptions-=T
 
     if has("win32")
-        set guifont=Lucida_Console:h10:cANSI
+        set guifont=DejaVu_Sans_Mono:h10:cANSI
         noremap <M-Space> :simalt ~<CR>
         inoremap <M-Space> <C-O>:simalt ~<CR>
         cnoremap <M-Space> <C-C>:simalt ~<CR>
