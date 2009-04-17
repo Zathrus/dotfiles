@@ -6,9 +6,11 @@ set nocompatible        " disable horrible vi compatability mode!
 set all&                " Reset all settings to default
 let &rtp=s:oldrtp
 
-" Make Windows use the standard .vim dir instead of _vimfiles
+" Make Windows use the standard .vim dir instead of _vimfiles -- this must be
+" done before :filetype or :syntax.  Also beat Windows into using utf-8.
 if (has("win32") || has("win64"))
     set rtp=$HOME/.vim,$HOME/vimfiles,$VIM/vimfiles,$VIMRUNTIME,$VIM/vimfiles/after,$HOME/vimfiles/after,$HOME/.vim/after
+    set enc=utf-8
 
     if has("gui_running")
         set bg=light            " this should not be necessary, bug in 7
@@ -111,9 +113,6 @@ set shellslash          " use slashes instead of backslashes
 " Buffers, Windows, & Tabs
 set hidden              " allow modified buffers that are not visible
 set mousemodel=popup    " change right click to set position and make menu
-
-set splitright          " When splitting vertically, make new window to right
-set splitbelow          " When splitting horizontally, make new window below
 
 " Display, messages, and terminal ----------------------------------------{{1
 set display=lastline    " show as much of the last displayed line as possible
@@ -304,7 +303,6 @@ set tags=~/sita/BagManager/tags
 let g:miniBufExplMaxSize = 5            " maximum 5 lines
 let g:miniBufExplorerMoreThanOne=1      " Always show the MBE window
 let g:miniBufExplUseSingleClick=1       " Switch w/ a single mouse click
-let g:miniBufExplSplitBelow=0           " put MBE at top
 
 let c_gnu = 1                   " GNU gcc specifics
 let c_comment_strings = 1       " Highlight strings and numbers inside comments
