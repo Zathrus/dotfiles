@@ -156,14 +156,15 @@ function! RemoveTrailingWhitespace()
 endfunction
 
 function! <SID>DiffPreview()
-    tabedit %
+    tab split
     diffthis
     vsplit
     enew
     set buftype=nofile
-    read #
-    1 delete
+    silent read #
+    silent 1 delete
     diffthis
+    wincmd l
 endfunction
 
 function! s:VSetSearch()
