@@ -8,11 +8,23 @@ fi
 set -o vi
 
 # User specific aliases and functions
-alias la='ls -la'
+HOST=$(uname -s | tr A-Z a-z)
+case $HOST in
+    linux)  LS_FLAGS=--color=tty
+            ;;
+    *)      LS_FLAGS=
+            ;;
+esac
+
+alias gb='git branch'
+alias gba='git branch -a -v'
+
+alias la='ls -a'
+alias ls="ls $LS_FLAGS -CF"
+
 alias md='mkdir -p'
 alias mktag='ctags -R --fields=+aiKmnsSz --langmap=c:+.pc'
-alias more=`which less`
-
+alias more=$(which less)
 
 # server aliases
 alias vios='screen -T xterm -t vios telnet aixvios'
