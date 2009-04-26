@@ -56,9 +56,8 @@ set cinoptions=:0g0h1st0(0
 
 set textwidth=78        " Max line length is X
 set formatoptions-=t    " Disable text autowrapping
-set formatoptions+=corqna
-"                  ||||||
-"                  |||||+-- auto-reformat text (comments only)
+set formatoptions+=corqn
+"                  |||||
 "                  ||||+--- recognize lists
 "                  |||+---- Allow reformatting of comments with gq
 "                  ||+----- Insert comment leader after <CR>
@@ -92,9 +91,6 @@ set ignorecase          " ignore case on searches by default
 set smartcase           " searches are case-insensitive unless upper case used
 set report=0            " always report # of lines changed from : commands
 let loaded_matchparen=1 " Disable matching paren/brace highlighting
-
-" Load improved % behavior
-source $VIMRUNTIME/macros/matchit.vim
 
 " Menus, completion ------------------------------------------------------{{1
 "set complete-=i         " do not scan included files in completion
