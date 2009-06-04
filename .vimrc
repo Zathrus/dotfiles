@@ -92,9 +92,6 @@ set smartcase           " searches are case-insensitive unless upper case used
 set report=0            " always report # of lines changed from : commands
 let loaded_matchparen=1 " Disable matching paren/brace highlighting
 
-" Load improved % behavior
-source $VIMRUNTIME/macros/matchit.vim
-
 " Menus, completion ------------------------------------------------------{{1
 "set complete-=i         " do not scan included files in completion
 set completeopt=longest,menu,menuone,preview
