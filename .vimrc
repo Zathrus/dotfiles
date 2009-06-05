@@ -123,7 +123,35 @@ set ttyfast             " why yes, my terminal isn't from the 70s.
 set linespace=1         " I like the extra spacing
 set whichwrap+=<,>,[,]  " wrap at start/end of line
 
-set statusline=%!GetStatusLine() " Set statusline from a function
+highlight User1 term=bold,reverse cterm=reverse ctermfg=145 ctermbg=12 gui=reverse guifg=#c2bfa5 guibg=Red
+
+set statusline=[%n]\                        " Buffer number
+set statusline+=%<%f                        " Filename
+set statusline+=%m                          " Modified flag
+set statusline+=%1*%r%*                     " Readonly flag
+set statusline+=%w                          " Preview flag
+set statusline+=%{&ff!='unix'?'['.&ff.']':''} " display ff only if not unix
+                            " display a warning if file encoding isnt utf-8
+set statusline+=%#error#%{(&fenc!='utf-8'&&&fenc!='')?'['.&fenc.']':''}%*
+set statusline+=%y                          " File type
+set statusline+=%#error#                    " display a warning if &paste is set
+set statusline+=%{&paste?'[paste]':''}
+set statusline+=%*
+
+set statusline+=%=                          " Left/right separator
+set statusline+=%{StatuslineCurrentHighlight()}\ \  " current highlight
+set statusline+=%c,%l/%L                    " Position column,line/total
+set statusline+=\ %P                        " Percentage through file
+
+"return the syntax highlight group under the cursor ''
+function! StatuslineCurrentHighlight()
+    let name = synIDattr(synID(line('.'),col('.'),1),'name')
+    if name == ''
+        return ''
+    else
+        return '[' . name . ']'
+    endif
+endfunction
 
 set printoptions=paper:letter
 
@@ -170,26 +198,6 @@ function! s:VSetSearch()
   norm! gvy
   let @/ = '\V' . substitute(escape(@@, '\'), '\n', '\\n', 'g')
   let @@ = temp
-endfunction
-
-" Returns the string used for the status line
-function! GetStatusLine()
-    let line = ''
-    let line .= '[%n] '                         " Buffer number
-    let line .= '%<%f'                          " Filename
-    let line .= '%4m'                           " Modified flag
-    let line .= '%5r'                           " Readonly flag
-    let line .= '%10w'                          " Preview flag
-    let line .= '%6h'                           " Help flag
-    let line .= '[%{&ff}] '                     " File format
-    let line .= "[%{(&fenc!=''?&fenc:&enc)}] "  " File encoding
-    let line .= '%y '                           " File type
-    let line .= '%='                    " Left/right separator
-    let line .= '(%b/%B) '                      " dec/hex of char under cursor
-    let line .= '[%o] '                         " Byte number
-    let line .= '%l,%c%V/%L '                   " Position line,column/total
-    let line .= '%P'                            " Percentage through file
-    return line
 endfunction
 
 " Custom maps ------------------------------------------------------------{{1
