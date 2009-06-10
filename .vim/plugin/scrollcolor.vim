@@ -5,12 +5,12 @@
 "
 " SYNOPSIS:
 "   This is colorscheme Scroller/Chooser/Browser.
-"   With this plugin, you walk through installed 
+"   With this plugin, you walk through installed
 "   colorschemes using arrow keys.
 "
 " SHORT USAGE DESCRIPTION:
-"   Drop ScrollColors.vim into your plugin directory. 
-"   Type :SCROLL    
+"   Drop ScrollColors.vim into your plugin directory.
+"   Type :SCROLL
 "   Use arrow keys to walk through colorschemes, ? for help, Esc to exit.
 "
 " DETAILED DESCRIPTION:
@@ -19,7 +19,7 @@
 "   2. Type :SCROLL
 "   3. Use arrows to scroll thgough colorschemes.
 "   4. When done, press Esc to exit. You will be prompted
-"      wether to 
+"      wether to
 "
 "   You can download 140 colorschemes pack from:
 "        http://www.vim.org/scripts/script.php?script_id=625
@@ -149,7 +149,7 @@ function! s:ExitDialog(old, action)
     " exit, keep colorscheme
         let msg = (a:old == s:CurrentColor() ? '' : "(original: '".a:old."')")
         call s:FinalEcho( msg )
-    elseif ans == 2 
+    elseif ans == 2
     " exit, revert colorscheme
         call s:SetColor(a:old)
         call s:FinalEcho('original color restored')
@@ -252,7 +252,7 @@ endfu
 " Get list element by 1-based index
 function! s:EntryByIndex(list,index)
     let k=1
-    let tail=a:list 
+    let tail=a:list
     while tail != '' && k < a:index
         let tail=substitute(tail, "^[^\n]*\n", "", "")
         let k = k + 1
@@ -261,7 +261,7 @@ function! s:EntryByIndex(list,index)
     return tail
 endfu
 
-function! s:MakeWellFormedList(list) 
+function! s:MakeWellFormedList(list)
 
     " make sure last \n is present
     let str=a:list."\n"
@@ -288,7 +288,7 @@ function! s:RemoveDuplicates(list)
     while beg < strlen(res)
         let end = matchend(res, sep, beg)
         let str1 = strpart( res, beg, end - beg)
-        let res = strpart(res,0,end) . substitute("\n".strpart(res,end), "\n".str1,"\n","g") 
+        let res = strpart(res,0,end) . substitute("\n".strpart(res,end), "\n".str1,"\n","g")
         let res = substitute(res, "\n\\+", "\n", "g")
         let beg = end
     endw
@@ -360,7 +360,7 @@ function! s:GetColorschemesList()
 endfunction
 
 
-function! s:RefreshColorschemesList() 
+function! s:RefreshColorschemesList()
     let x=globpath(&rtp, "colors/*.vim")
     let y=substitute(x."\n","\\(^\\|\n\\)[^\n]*[/\\\\]", "\n", "g")
     let z=substitute(y,"\\.vim\n", "\n", "g")
@@ -369,7 +369,7 @@ function! s:RefreshColorschemesList()
     return s:list
 endfun
 
-function! s:GetFirstColors() 
+function! s:GetFirstColors()
     let list=s:GetColorschemesList()
     let trim=substitute(list, "^\n\\+", "", "")
     return substitute(trim, "\n.*", "", "")
@@ -447,9 +447,6 @@ endfun
 
 command! CN :call s:NextColorscheme()
 command! CP :call s:PrevColorscheme()
-map \n :CN<cr>
-map \p :CP<cr>
-map \c :echo g:colors_name<cr>
 
 " 2006-07-18 fixed bug with Align() -> s:Align() (affected L command)
 " 2006-07-18 added colorlist cache (s:list)

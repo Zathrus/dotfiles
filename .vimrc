@@ -36,7 +36,7 @@ set viminfo='100,<1000,s1000
 
 " enable backups and use the first available dir
 set backup
-set backupdir=~/tmp/vim,~/local/backup,./,/tmp
+set backupdir=~/local/backup,~/tmp/vim,./,/tmp
 set suffixes-=.h        " Really, I like editing header files
 
 " Indentation & Text Formatting -----------------------------------------{{{1
@@ -179,20 +179,7 @@ function! RemoveTrailingWhitespace()
     call setreg('/', l:searchreg, l:searchregtype)
 endfunction
 
-function! <SID>DiffPreview()
-    tab split
-    let ft=&ft
-    diffthis
-    vsplit
-    enew
-    set buftype=nofile
-    silent read #
-    silent 1 delete
-    let &ft=ft
-    diffthis
-    wincmd l
-endfunction
-
+" Doesn't currently work because of space.vim
 function! s:VSetSearch()
   let temp = @@
   norm! gvy
@@ -204,9 +191,6 @@ endfunction
 
 " cd to current buffer's directory
 noremap <F4> :cd %:p:h<CR>
-
-" view differences between the buffer and the file on disk
-nmap <Leader>dp :call <SID>DiffPreview()<CR>
 
 " List all open buffers and select one
 nmap <Leader>l :ls<CR>:b<space>
