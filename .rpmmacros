@@ -1,2 +1,3 @@
-%_topdir /home/tsorensen/rpmbuild
+%_topdir /home/tom/rpmbuild
 %_tmppath %{_topdir}/tmp
+%define centos_ver %(Z=$(rpm -q --whatprovides /etc/redhat-release); A=$(rpm -q --qf '%{V}' $Z); echo ${A:0:1})}
