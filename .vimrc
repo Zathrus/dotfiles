@@ -9,12 +9,9 @@ let &rtp=s:oldrtp
 " Make Windows use the standard .vim dir instead of _vimfiles -- this must be
 " done before :filetype or :syntax.  Also beat Windows into using utf-8.
 if (has("win32") || has("win64"))
-    set rtp=$HOME/.vim,$HOME/vimfiles,$VIM/vimfiles,$VIMRUNTIME,$VIM/vimfiles/after,$HOME/vimfiles/after,$HOME/.vim/after
+    "set rtp=$HOME/.vim,$HOME/vimfiles,$VIM/vimfiles,$VIMRUNTIME,$VIM/vimfiles/after,$HOME/vimfiles/after,$HOME/.vim/after
+    let &runtimepath = substitute(&runtimepath, '\(\~\|'.$USER.'\)/vimfiles\>', '\1/.vim', 'g')
     set enc=utf-8
-
-    if has("gui_running")
-        set bg=light            " this should not be necessary, bug in 7
-    endif
 endif
 
 " Misc ------------------------------------------------------------------{{{1
@@ -114,13 +111,16 @@ set mousemodel=popup    " change right click to set position and make menu
 set display=lastline    " show as much of the last displayed line as possible
 set laststatus=2        " always show the status line
 set lazyredraw          " don't redraw during macros
+set linespace=1         " I like the extra spacing
 set noruler             " since statusline is set, let ctrl-g show position
 set showcmd             " show partial commands in status line
 set scrolloff=5         " keep N lines visible when scrolling up/down
 set sidescrolloff=5     " keep N chars visible when scrolling left/right
+set notimeout           " Never timeout on mappings
+set ttimeout            " But timeout very quickly on keycodes
+set ttimeoutlen=200
 set title               " change the window title based on file being edited
 set ttyfast             " why yes, my terminal isn't from the 70s.
-set linespace=1         " I like the extra spacing
 set whichwrap+=<,>,[,]  " wrap at start/end of line
 
 highlight User1 term=bold,reverse cterm=reverse ctermfg=145 ctermbg=12 gui=reverse guifg=#c2bfa5 guibg=Red
@@ -276,7 +276,7 @@ if has("gui_running")
 else
     set clipboard=exclude:.*
 
-    if &term == 'screen'
-        set t_Co=256
-    endif
+"    if &term == 'screen'
+"        set t_Co=256
+"    endif
 endif
