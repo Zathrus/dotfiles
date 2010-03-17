@@ -198,6 +198,9 @@ nmap <Leader>l :ls<CR>:b<space>
 " redraw screen and clear highlight as same time
 nnoremap <silent> <C-L> :nohls<CR><C-L>
 
+" swap two words, maintaining the whitespace between
+nnoremap <Leader>sw :s/\%#\(\w\+\)\(\s\+\)\(\w\+\)/\3\2\1<CR>
+
 " completion mode maps
 inoremap <C-SPACE> <C-X><C-O>
 inoremap <C-L> <C-X><C-L>
