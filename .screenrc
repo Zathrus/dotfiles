@@ -20,3 +20,4 @@ termcapinfo   xterm*|putty* 'XC=K%,%\E(B,[\304,\\\\\326,]\334,{\344,|\366,}\374,
 # xterm-52 tweaks:
 # - uses background color for delete operations
 termcapinfo xterm*|putty* be
+nethack off
