@@ -30,12 +30,9 @@ function calc
     echo "scale=2;$*" | bc
 }
 
+# Port defaults to 80 unless passed on command line as 2nd parameter
 function tcping {
-    if [[ -z "$2" ]]; then
-        port=80
-    else
-        port=$2
-    fi
+    port=${2:-80}
     if [[ $( nc -z $1 $port ) ]]; then
         echo $1:$port is accessible
     else

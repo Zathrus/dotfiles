@@ -10,6 +10,7 @@ fi
 test -f .profile && source .profile
 
 export PS1='\[\e[0;36m\][\u@\h \W $?]\$ \[\e[m\]'
+export INPUTRC=~/.inputrc
 
 if [ -n "$SSH_TTY" ]; then
     exec screen -xRR
