@@ -12,6 +12,9 @@ HOST=$(uname -s | tr A-Z a-z)
 case $HOST in
     linux)  LS_FLAGS=--color=tty
             ;;
+    darwin) export CLICOLOR=1
+            export LSCOLORS=gxExfxDxcxdhdhcbcBgcgd
+            ;;
     *)      LS_FLAGS=
             ;;
 esac
