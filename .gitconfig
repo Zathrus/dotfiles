@@ -1,0 +1,14 @@
+[user]
+	name = Tom Sorensen
+	email = tsorensen@gmail.com
+[core]
+	editor = vim
+	pager = less
+[color]
+	branch = auto
+	diff = auto
+	interactive = auto
+	status = auto
+	ui = auto
+[merge]
+	tool = vimdiff
