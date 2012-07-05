@@ -1,6 +1,6 @@
 export PATH=$HOME/local/bin:$PATH
 
-export LESS=-eiMR
+export LESS=-eFiMR
 export PAGER=$(which less)
 export NETHACKOPTIONS=autodig,autopickup,pickup_types:$,autoquiver,nolegacy,nomail,pushweapon,rest_on_space,nosparkle,time,notombstone,nonews,nocheckspace,showexp,showscore
 
