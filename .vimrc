@@ -14,6 +14,17 @@ if (has("win32") || has("win64"))
     set enc=utf-8
 endif
 
+" Vundle setup
+filetype off
+set rtp+=~/.vim/bundle/vundle/
+call vundle#rc()
+
+Plugin 'gmarik/vundle'      " Let vundle manage vundle
+
+Plugin 'tpope/vim-repeat'
+Plugin 'tpope/vim-surround'
+Plugin 'dantler/vim-alternate'
+
 " Misc ------------------------------------------------------------------{{{1
 filetype indent plugin on
 set nostartofline       " don't go to start of line in many cases
