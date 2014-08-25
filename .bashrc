@@ -24,9 +24,21 @@ alias gba='git branch -a -v'
 
 alias la='ls -a'
 alias ls="ls $LS_FLAGS -CF"
+alias ll='ls -l'
 
 alias md='mkdir -p'
 alias more=$(which less)
+
+alias mstest='ant -Dbvt.log4j.configuration=file:///Users/tsorensen/bps/mediasource/mscore/bvt-log4j.properties -Dtest.db.user=tsorensen_junit -Dtest.db.password=alpha1 -Dtest.jvm.data.model=64 -Dtest.max.heap.size=2500m -Dtest.max.perm.size=128m $@ test'
+
+alias ombuild='ant -Dlocal.mscore.path=../mscore $@'
+
+if [[ $(uname) == "Darwin" ]]; then
+    alias vim="$(which mvim) -v"
+fi
+
+# rerun the last command, but edit the list of files output in vim.
+alias v='vim $(fc -s)'
 
 function calc
 {
@@ -42,3 +54,7 @@ function tcping {
         echo $1:$port is not accessible
     fi
 }
+
+PATH=$PATH:$HOME/.rvm/bin # Add RVM to PATH for scripting
+
+shopt -s histappend
