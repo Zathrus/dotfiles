@@ -1,14 +1,34 @@
 [user]
-	name = Tom Sorensen
-	email = tsorensen@gmail.com
+    name = Tom Sorensen
+    email = tom.sorensen@turner.com
 [core]
-	editor = vim
-	pager = less
+    editor = vim
+    pager = less
 [color]
-	branch = auto
-	diff = auto
-	interactive = auto
-	status = auto
-	ui = auto
+    ui = auto
+[color "branch"]
+    current = white reverse
+    remote = green
+    upstream = yellow
 [merge]
-	tool = vimdiff
+    tool = vimdiff
+[push]
+    default = simple
+[alias]
+    a = add
+    b = branch -v
+    co = checkout
+    d = diff
+    dc = diff --cached
+    last = diff HEAD^                   # diff last committed change
+    lg = log --graph --date=short
+    changes = log --pretty=format:\"%h %cr %cn %Cgreen%s%Creset\" --name-status
+    short = log --pretty=format:\"%h %cr %cn %Cgreen%s%Creset\"
+    changelog = log --pretty=format:\" * %s\"
+    s = status
+[format]
+    pretty = format:%C(blue)%ad%Creset %C(yellow)%h%C(green)%d%Creset %C(blue)%s %C(magenta) [%an]%Creset
+[rerere]
+    # Remember my merges
+    # http://gitfu.wordpress.com/2008/04/20/git-rerere-rereremember-what-you-did-last-time/
+    enabled = true
