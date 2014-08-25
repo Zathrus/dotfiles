@@ -11,8 +11,7 @@ test -f .profile && source .profile
 
 export PS1='\[\e[1;36m\][\u@\h \W $?]\$ \[\e[m\]'
 
-
-if [ -n "$SSH_TTY" ]; then
+if [ -n "$SSH_TTY" -a ! -e ~/.noscreen ]; then
     exec screen -xRR
 fi
 
