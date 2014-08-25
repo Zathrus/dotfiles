@@ -14,6 +14,21 @@ if (has("win32") || has("win64"))
     set enc=utf-8
 endif
 
+" Vundle setup
+filetype off
+set rtp+=~/.vim/bundle/vundle/
+call vundle#rc()
+
+Plugin 'gmarik/vundle'      " Let vundle manage vundle
+
+Plugin 'tpope/vim-repeat'
+Plugin 'tpope/vim-surround'
+Plugin 'vim-ruby/vim-ruby'
+Plugin 'tpope/vim-rails'
+Plugin 'jelera/vim-javascript-syntax'
+Plugin 'pangloss/vim-javascript'
+Plugin 'mustache/vim-mustache-handlebars'
+
 " Misc ------------------------------------------------------------------{{{1
 filetype indent plugin on
 set nostartofline       " don't go to start of line in many cases
@@ -240,7 +255,9 @@ vnoremap # :<C-u>call <SID>VSetSearch()<CR>??<CR>
 nmap <C-]> :exe "tjump " . expand('<cword>')<CR>
 
 " Custom autocommands ----------------------------------------------------{{1
+:augroup AUTO_WS_REMOVE
 autocmd BufWritePre * call RemoveTrailingWhitespace()
+:augroup END
 
 autocmd FileType help nnoremap <buffer> <Enter> <C-]>
 
@@ -254,13 +271,11 @@ endif
 
 set tags=~/sita/BagManager/tags
 
-let g:miniBufExplMaxSize = 5            " maximum 5 lines
-let g:miniBufExplorerMoreThanOne=1      " Always show the MBE window
-let g:miniBufExplUseSingleClick=1       " Switch w/ a single mouse click
-
 let c_gnu = 1                   " GNU gcc specifics
 let c_comment_strings = 1       " Highlight strings and numbers inside comments
 let c_space_errors = 1          " Trailing whitespace, spaces before a tab
+
+let g:mustache_abbreviations = 1
 
 " GVim setup -------------------------------------------------------------{{1
 if has("gui_running")

@@ -26,9 +26,17 @@ alias gba='git branch -a -v'
 
 alias la='ls -a'
 alias ls="ls $LS_FLAGS -CF"
+alias ll='ls -l'
 
 alias md='mkdir -p'
 alias more=$(which less)
+
+if [[ $(uname) == "Darwin" ]]; then
+    alias vim="$(which mvim) -v"
+fi
+
+# rerun the last command, but edit the list of files output in vim.
+alias v='vim $(fc -s)'
 
 function calc
 {
@@ -44,3 +52,5 @@ function tcping {
         echo $1:$port is not accessible
     fi
 }
+
+shopt -s histappend

@@ -1,1 +1,0 @@
-sqlanywhere.vim
