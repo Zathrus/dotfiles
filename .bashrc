@@ -7,6 +7,8 @@ fi
 
 set -o vi
 
+bind '"\e.":yank-last-arg'
+
 # User specific aliases and functions
 HOST=$(uname -s | tr A-Z a-z)
 case $HOST in
