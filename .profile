@@ -2,6 +2,7 @@ export PATH=$HOME/local/bin:$PATH
 
 export LESS=-eFiMRX
 export PAGER=$(type -P less)
+export EDITOR=$(type -P vim)
 
 export INPUTRC=~/.inputrc
 
