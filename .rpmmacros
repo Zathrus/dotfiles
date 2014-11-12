@@ -1,3 +1,5 @@
-%_topdir /home/tom/rpmbuild
+%_topdir /home/tsorense/rpmbuild
 %_tmppath %{_topdir}/tmp
 %define centos_ver %(Z=$(rpm -q --whatprovides /etc/redhat-release); A=$(rpm -q --qf '%{V}' $Z); echo ${A:0:1})}
+%_smp_mflags  -j3
+%__arch_install_post   /usr/lib/rpm/check-rpaths   /usr/lib/rpm/check-buildroot

@@ -12,8 +12,8 @@
     upstream = yellow
 [merge]
     tool = vimdiff
-#[push]
-#    default = simple
+[push]
+    default = simple
 [alias]
     a = add
     b = branch -v
