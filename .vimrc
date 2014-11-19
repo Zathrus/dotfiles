@@ -288,10 +288,4 @@ if has("gui_running")
         inoremap <M-Space> <C-O>:simalt ~<CR>
         cnoremap <M-Space> <C-C>:simalt ~<CR>
     endif
-else
-    set clipboard=exclude:.*
-
-"    if &term == 'screen'
-"        set t_Co=256
-"    endif
 endif
