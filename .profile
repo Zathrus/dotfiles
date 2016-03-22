@@ -6,4 +6,6 @@ export PAGER=$(type -P less)
 
 export INPUTRC=~/.inputrc
 
+export EDITOR=$(type -P vim)
+
 stty -ixon >/dev/null 2>/dev/null
