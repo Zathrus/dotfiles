@@ -29,10 +29,12 @@ alias ls="ls $LS_FLAGS -CF"
 alias ll='ls -l'
 
 alias md='mkdir -p'
-alias more=$(which less)
+alias more=$(type -p less)
 
 if [[ $(uname) == "Darwin" ]]; then
-    alias vim="$(which mvim) -v"
+    alias vim="$(type -p mvim) -v"
+elif [[ $DISPLAY == ":0" && -x /usr/bin/vimx ]]; then
+    alias vim="$(type -p vimx)"
 fi
 
 # rerun the last command, but edit the list of files output in vim.

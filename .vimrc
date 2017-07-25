@@ -269,8 +269,6 @@ if has("cscope")
     endif
 endif
 
-set tags=~/sita/BagManager/tags
-
 let c_gnu = 1                   " GNU gcc specifics
 let c_comment_strings = 1       " Highlight strings and numbers inside comments
 let c_space_errors = 1          " Trailing whitespace, spaces before a tab
