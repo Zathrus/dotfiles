@@ -31,6 +31,8 @@ alias ll='ls -l'
 alias md='mkdir -p'
 alias more=$(which less)
 
+alias lspath='namei'
+
 if [[ $(uname) == "Darwin" ]]; then
     alias vim="$(which mvim) -v"
 fi
