@@ -2,7 +2,7 @@
 
 if [[ ! -n $(pidof dropbox) ]]; then
     #echo "Dropbox is not running, starting now..."
-    nohup /home/tsorense/.dropbox-dist/dropboxd > /dev/null &2>1 &
+    nohup /home/tsorense/.dropbox-dist/dropboxd > /dev/null 2>&1 &
 fi
 
 if [[ -n $(pidof keepassx) ]]; then
@@ -15,5 +15,5 @@ if [[ -n $(pidof keepassx) ]]; then
     wmctrl -i -a $kp_xwid
 else
     #echo "KeePassX is not running, starting now..."
-    nohup keepassx > /dev/null &2>1 &
+    nohup keepassx > /dev/null 2>&1 &
 fi

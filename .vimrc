@@ -23,11 +23,8 @@ Plugin 'gmarik/vundle'      " Let vundle manage vundle
 
 Plugin 'tpope/vim-repeat'
 Plugin 'tpope/vim-surround'
-Plugin 'vim-ruby/vim-ruby'
-Plugin 'tpope/vim-rails'
-Plugin 'jelera/vim-javascript-syntax'
-Plugin 'pangloss/vim-javascript'
-Plugin 'mustache/vim-mustache-handlebars'
+Plugin 'pearofducks/ansible-vim'
+Plugin 'vimoutliner/vimoutliner'
 
 " Misc ------------------------------------------------------------------{{{1
 filetype indent plugin on
