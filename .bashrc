@@ -5,6 +5,8 @@ if [ -f /etc/bashrc ]; then
 	. /etc/bashrc
 fi
 
+export PS1='\[\e[1;36m\][\u@\h \W $?]\$ \[\e[m\]'
+
 set -o vi
 
 bind '"\e.":yank-last-arg'
