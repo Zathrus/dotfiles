@@ -276,6 +276,7 @@ let g:mustache_abbreviations = 1
 if has("gui_running")
     set lines=40
     set guioptions-=T
+    set guifont=Monospace\ 14
 
     if has("win32")
         set guifont=DejaVu_Sans_Mono:h10:cANSI

@@ -42,6 +42,12 @@ fi
 # rerun the last command, but edit the list of files output in vim.
 alias v='vim $(fc -s)'
 
+alias vi='vim'
+
+alias gettoken='token=$(curl https://sso.redhat.com/auth/realms/redhat-external/protocol/openid-connect/token -d grant_type=refresh_token -d client_id=rhsm-api -d refresh_token=$(cat ~/local/token) | jq --raw-output .access_token)'
+alias getqa='token=$(curl https://sso.qa.redhat.com/auth/realms/redhat-external/protocol/openid-connect/token -d grant_type=refresh_token -d client_id=rhsm-api -d refresh_token=$(cat ~/local/token.qa) | jq --raw-output .access_token)'
+alias getstage='token=$(curl https://sso.stage.redhat.com/auth/realms/redhat-external/protocol/openid-connect/token -d grant_type=refresh_token -d client_id=rhsm-api -d refresh_token=$(cat ~/local/token.stage) | jq --raw-output .access_token)'
+
 function calc
 {
     echo "scale=2;$*" | bc
