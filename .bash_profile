@@ -13,5 +13,7 @@ export PS1='\[\e[1;36m\][\u@\h \W $?]\$ \[\e[m\]'
 
 
 if [ -n "$SSH_TTY" -a ! -e ~/.noscreen ]; then
-    exec screen -xRR
+    exec screen -UxRR
+elif [ -n "$SSH_TTY" -a ! -e ~/.notmux ]; then
+    exec tmux new-session -A -s main
 fi
