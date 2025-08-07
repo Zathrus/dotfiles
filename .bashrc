@@ -9,6 +9,8 @@ set -o vi
 
 bind '"\e.":yank-last-arg'
 
+PATH=$PATH:$HOME/local/bin
+
 # User specific aliases and functions
 HOST=$(uname -s | tr A-Z a-z)
 case $HOST in
