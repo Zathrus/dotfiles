@@ -11,6 +11,7 @@ test -f .profile && source .profile
 
 export PS1='\[\e[1;36m\][\u@\h \W $?]\$ \[\e[m\]'
 
+export LESS=-eFiMRX
 
 if [ -x /usr/bin/screen -a -n "$SSH_TTY" -a ! -e ~/.noscreen ]; then
     exec screen -UxRR
