@@ -16,15 +16,16 @@ endif
 
 " Vundle setup
 filetype off
-set rtp+=~/.vim/bundle/vundle/
-call vundle#rc()
+set rtp+=~/.vim/bundle/Vundle.vim
+call vundle#begin()
 
-Plugin 'gmarik/vundle'      " Let vundle manage vundle
+Plugin 'VundleVim/Vundle.vim'      " Let vundle manage vundle
 
 Plugin 'tpope/vim-repeat'
 Plugin 'tpope/vim-surround'
 Plugin 'pearofducks/ansible-vim'
-Plugin 'vimoutliner/vimoutliner'
+
+call vundle#end()
 
 " Misc ------------------------------------------------------------------{{{1
 filetype indent plugin on
