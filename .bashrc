@@ -63,4 +63,6 @@ function tcping {
     fi
 }
 
+alias miccheck='arecord -vvv -fdat /dev/null'
+
 shopt -s histappend
